@@ -540,3 +540,20 @@ body {
 #navbar.scrolled::after {
   background-color: var(--border-color);
 }
+
+
+#navbar .back-button {
+  position: absolute;
+  left: 16px;
+  top: calc(env(safe-area-inset-top) + 8px);
+  background: none;
+  border: none;
+  color: var(--ios-blue);
+  font-size: 17px;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+#navbar .hidden {
+  display: none;
+}
