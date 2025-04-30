@@ -2,7 +2,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const listView = document.getElementById('listView');
     const detailView = document.getElementById('detailView');
     const backButton = document.getElementById('backButton');
-    const appItems = document.querySelectorAll('.app-list li[data-appid]'); // Select only items with data-appid
+    const navbar = document.getElementById('navbar');
+    const navbarTitle = document.getElementById('navbarTitle');
+    const appItems = document.querySelectorAll('.app-list li[data-appid]');
+    const toggleSwitches = document.querySelectorAll('.toggle-switch');
 
     // Function to switch views
     function showView(viewToShow) {
@@ -11,60 +14,63 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (viewToShow === 'list') {
             listView.classList.add('active');
+            backButton.classList.add('hidden');
+            navbarTitle.textContent = 'Apps';
         } else if (viewToShow === 'detail') {
             detailView.classList.add('active');
-            // Potentially load specific app data here in a real app
-            // For now, it just shows the static detail view structure
-            window.scrollTo(0, 0); // Scroll to top when showing detail view
+            backButton.classList.remove('hidden');
+            navbarTitle.textContent = '';
+            window.scrollTo(0, 0); // Scroll to top
         }
     }
 
-    // Event listeners for app items
+    // Scroll blur + separator toggle
+    function handleScroll() {
+        const scrollTop = window.scrollY || document.documentElement.scrollTop;
+        if (scrollTop > 2) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    }
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Initial run
+
+    // App list item click handler
     appItems.forEach(item => {
         item.addEventListener('click', () => {
             const appId = item.getAttribute('data-appid');
-            console.log(`Navigating to detail for app: ${appId}`); // For debugging
-            // In a real app, you'd use appId to fetch/display correct detail data
+            console.log(`Navigating to detail for app: ${appId}`);
             showView('detail');
         });
-        // Add simple active state for visual feedback on tap
-        item.addEventListener('touchstart', () => item.style.backgroundColor = 'rgba(255, 255, 255, 0.1)', { passive: true });
-        item.addEventListener('touchend', () => setTimeout(() => item.style.backgroundColor = '', 100)); // Reset bg quickly
+
+        // Touch feedback
+        item.addEventListener('touchstart', () => {
+            item.style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
+        }, { passive: true });
+
+        item.addEventListener('touchend', () => {
+            setTimeout(() => {
+                item.style.backgroundColor = '';
+            }, 100);
+        });
     });
 
-    // Event listener for back button
+    // Back button click handler
     if (backButton) {
         backButton.addEventListener('click', () => {
             showView('list');
         });
     }
 
-    // Initial setup: Show the list view by default
-    // The 'active' class is already set in HTML for the list view,
-    // but this ensures JS control if HTML is modified.
-    showView('list');
-
-    // Basic toggle switch interaction (visual only)
-    const toggleSwitches = document.querySelectorAll('.toggle-switch');
+    // Toggle switches
     toggleSwitches.forEach(toggle => {
         toggle.addEventListener('click', () => {
             toggle.classList.toggle('on');
         });
     });
 
+    // Default view on load
+    showView('list');
 });
-document.addEventListener('DOMContentLoaded', () => {
-    const navbar = document.getElementById('navbar');
-
-    const handleScroll = () => {
-      const scrollTop = window.scrollY || document.documentElement.scrollTop;
-      if (scrollTop > 2) {
-        navbar.classList.add('scrolled');
-      } else {
-        navbar.classList.remove('scrolled');
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    handleScroll(); // run once on load
-  });
