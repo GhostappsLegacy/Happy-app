@@ -69,73 +69,80 @@
         </main>
     </div>
 
-    <div id="detailView" class="ios-app-container view"> <header class="ios-header detail-header">
+    <!-- …earlier listView markup… -->
+
+    </div> <!-- close #listView -->
+
+    <!-- DETAIL VIEW (only one!) -->
+    <div id="detailView" class="ios-app-container view">
+        <header class="ios-header detail-header">
             <button id="backButton" class="back-button">&lt; Apps</button>
             <div class="action-icon-placeholder"></div>
         </header>
 
         <main class="ios-content detail-content">
             <section class="detail-app-header">
-                 <img src="placeholder-icon-1.png" alt="App Icon Large" class="app-icon-large">
-                 <h1 class="detail-app-title">Unwatched for YouTube</h1>
-                 <div class="detail-buttons">
-                     <button class="ios-button install-button large-button">Install</button>
-                     <button class="ios-link-button">Send Feedback</button>
-                 </div>
-                 <hr class="detail-separator thin-separator">
-                 <div class="metadata">
-                     <div><span>Developer</span><span>App Name LLC</span></div>
-                     <div><span>Category</span><span>Utilities</span></div>
-                     <div><span>Expires</span><span>90 Days</span></div>
-                 </div>
+                <img src="placeholder-icon-1.png" alt="App Icon Large" class="app-icon-large">
+                <h1 class="detail-app-title">Unwatched for YouTube</h1>
+                <div class="detail-buttons">
+                    <button class="ios-button install-button large-button">Install</button>
+                    <button class="ios-link-button">Send Feedback</button>
+                </div>
+                <hr class="detail-separator thin-separator">
+                <div class="metadata">
+                    <div><span>Developer</span><span>App Name LLC</span></div>
+                    <div><span>Category</span><span>Utilities</span></div>
+                    <div><span>Expires</span><span>90 Days</span></div>
+                </div>
             </section>
 
-            <section class="detail-section">
-                <hr class="detail-separator">
-                <h2>What to Test</h2>
-                <p class="test-notes">
-                    - Smart playlist pending improvements<br>
-                    - Clarified import subscriptions instructions <a href="#" class="more-link">more</a>
-                </p>
-            </section>
+            <div class="detail-section-group">
+                <section class="detail-section">
+                    <hr class="detail-separator">
+                    <h2>What to Test</h2>
+                    <p class="test-notes">
+                        - Smart playlist pending improvements<br>
+                        - Clarified import subscriptions instructions <a href="#" class="more-link">more</a>
+                    </p>
+                </section>
 
-            <section class="detail-section screenshots-section">
-                 <hr class="detail-separator">
-                 <h2>Screenshots</h2>
-                 <div class="screenshots-container">
-                     <img src="placeholder-screenshot-1.png" alt="Screenshot 1">
-                     <img src="placeholder-screenshot-2.png" alt="Screenshot 2">
-                     <img src="placeholder-screenshot-3.png" alt="Screenshot 3">
-                 </div>
-                 <div class="device-compatibility">
-                     iPhone, iPad, Apple TV, and Mac
-                 </div>
-            </section>
+                <section class="detail-section screenshots-section">
+                    <hr class="detail-separator">
+                    <h2>Screenshots</h2>
+                    <div class="screenshots-container">
+                        <img src="placeholder-screenshot-1.png" alt="Screenshot 1">
+                        <img src="placeholder-screenshot-2.png" alt="Screenshot 2">
+                        <img src="placeholder-screenshot-3.png" alt="Screenshot 3">
+                    </div>
+                    <div class="device-compatibility">
+                        iPhone, iPad, Apple TV, and Mac
+                    </div>
+                </section>
 
-            <section class="detail-section">
-                 <hr class="detail-separator">
-                 <h2>App Description</h2>
-                 <p>Add Videos to watch them later or follow YouTube channels! <a href="#" class="more-link">more</a></p>
-            </section>
+                <section class="detail-section">
+                    <hr class="detail-separator">
+                    <h2>App Description</h2>
+                    <p>Add Videos to watch them later or follow YouTube channels! <a href="#" class="more-link">more</a></p>
+                </section>
 
-             <section class="detail-section info-section">
-                 <hr class="detail-separator">
-                 <h2>App Information</h2>
-                 <ul class="info-list">
-                     <li><span>App Details</span> <span class="disclosure-indicator">&gt;</span></li>
-                     <li><span>Automatic Updates</span> <span class="toggle-switch on"></span></li>
-                     <li><span>Notifications</span> <span class="disclosure-indicator detail">Push &gt;</span></li>
-                     <li><span>Previous Builds</span> <span class="disclosure-indicator">&gt;</span></li>
-                 </ul>
-             </section>
+                <section class="detail-section info-section">
+                    <hr class="detail-separator">
+                    <h2>App Information</h2>
+                    <ul class="info-list">
+                        <li><span>App Details</span> <span class="disclosure-indicator">&gt;</span></li>
+                        <li><span>Automatic Updates</span> <span class="toggle-switch on"></span></li>
+                        <li><span>Notifications</span> <span class="disclosure-indicator detail">Push &gt;</span></li>
+                        <li><span>Previous Builds</span> <span class="disclosure-indicator">&gt;</span></li>
+                    </ul>
+                </section>
 
-             <section class="detail-section stop-testing-section">
-                 <hr class="detail-separator">
-                 <button class="ios-text-button stop-testing-button">Stop Testing</button>
-             </section>
-
+                <section class="detail-section stop-testing-section">
+                    <hr class="detail-separator">
+                    <button class="ios-text-button stop-testing-button">Stop Testing</button>
+                </section>
+            </div>
         </main>
-    </div>
+    </div> <!-- close #detailView -->
 
     <script src="script.js"></script>
 </body>
