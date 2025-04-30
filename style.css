@@ -1,0 +1,279 @@
+
+/* View Management */
+.view {
+    display: none; /* Hide views by default */
+}
+.view.active {
+    display: block; /* Show the active view */
+}
+
+/* ====== Detail View Styles ====== */
+
+.detail-header {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    align-items: center;
+    position: relative; /* For absolute positioning if needed */
+    border-bottom: 0.5px solid var(--ios-tertiary-bg-color); /* Subtle separator */
+}
+
+.back-button {
+    background: none;
+    border: none;
+    color: var(--ios-blue-color);
+    font-size: 17px;
+    cursor: pointer;
+    padding: 5px 10px 5px 0; /* Adjust padding */
+    margin-left: -5px; /* Align visually with edge */
+    font-weight: 400;
+}
+
+.action-icon-placeholder {
+    width: 28px; /* Smaller placeholder */
+    height: 28px;
+    background-color: var(--ios-gray-color); /* Or make it look like a specific icon */
+    border-radius: 50%;
+}
+
+.detail-content {
+    padding-bottom: 50px; /* Ensure space at bottom */
+}
+
+/* Detail Header Section */
+.detail-app-header {
+    padding: 20px var(--ios-horizontal-padding);
+    text-align: center; /* Center icon and title */
+}
+
+.app-icon-large {
+    width: 90px; /* Larger icon */
+    height: 90px;
+    border-radius: 20px; /* ~22% */
+    margin: 0 auto 15px;
+    display: block;
+    background-color: var(--ios-gray-color); /* Placeholder */
+}
+
+.detail-app-title {
+    font-size: 24px; /* Larger title */
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.detail-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px; /* Space between buttons */
+    margin-bottom: 20px;
+}
+
+.ios-button.large-button {
+    height: 36px; /* Slightly larger button */
+    font-size: 16px;
+    min-width: 90px; /* Adjust width */
+}
+
+.ios-link-button {
+    background: none;
+    border: none;
+    color: var(--ios-blue-color);
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 5px; /* Minimal padding */
+    height: 36px;
+    display: inline-flex;
+    align-items: center;
+}
+
+.detail-separator {
+    border: none;
+    height: 0.5px;
+    background-color: var(--ios-tertiary-bg-color);
+    margin: 0; /* Reset margin */
+}
+.thin-separator { /* Separator within the header card */
+     margin: 0 calc(-1 * var(--ios-horizontal-padding)); /* Extend to edges */
+     margin-top: 15px;
+     margin-bottom: 15px;
+}
+
+.metadata {
+    display: flex;
+    justify-content: space-around; /* Space out items */
+    text-align: center;
+    font-size: 13px;
+}
+.metadata > div {
+    display: flex;
+    flex-direction: column;
+}
+.metadata span:first-child {
+    color: var(--ios-secondary-text-color); /* Label */
+    margin-bottom: 2px;
+    font-size: 12px;
+}
+.metadata span:last-child {
+    color: var(--ios-primary-text-color); /* Value */
+    font-weight: 500;
+}
+
+
+/* Detail Sections */
+.detail-section {
+    padding: 15px var(--ios-horizontal-padding);
+    background-color: var(--ios-secondary-bg-color); /* Card background */
+    margin: 20px var(--ios-horizontal-padding); /* Section spacing */
+    border-radius: 10px; /* Rounded corners */
+    overflow: hidden; /* Clip separator */
+    position: relative; /* For separator positioning */
+}
+.detail-section h2 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    padding: 0; /* Reset padding */
+}
+
+.detail-section .detail-separator { /* Separator *above* the section */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    /* margin: 0 calc(-1 * var(--ios-horizontal-padding)); */ /* Extend full width if needed */
+}
+.detail-section:first-of-type { /* First section might not need top separator */
+    margin-top: 0;
+}
+.detail-section:first-of-type .detail-separator {
+    display: none;
+}
+
+/* Specific Section Styles */
+.test-notes {
+    font-size: 15px;
+    line-height: 1.5;
+    color: var(--ios-primary-text-color);
+}
+.more-link {
+    color: var(--ios-blue-color);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+/* Screenshots */
+.screenshots-section {
+   padding-left: 0; /* Remove padding for full-width scroll */
+   padding-right: 0;
+}
+.screenshots-section h2 {
+   padding-left: var(--ios-horizontal-padding); /* Add back padding for title */
+   padding-right: var(--ios-horizontal-padding);
+}
+.screenshots-container {
+    display: flex;
+    overflow-x: auto;
+    gap: 10px; /* Space between screenshots */
+    padding: 0 var(--ios-horizontal-padding) 10px; /* Horizontal padding and bottom padding */
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+    scrollbar-width: none; /* Hide scrollbar Firefox */
+}
+.screenshots-container::-webkit-scrollbar {
+    display: none; /* Hide scrollbar Chrome/Safari */
+}
+.screenshots-container img {
+    height: 250px; /* Adjust height as needed */
+    width: auto; /* Maintain aspect ratio */
+    border-radius: 8px; /* Slight rounding */
+    background-color: var(--ios-gray-color); /* Placeholder */
+}
+.device-compatibility {
+    font-size: 12px;
+    color: var(--ios-secondary-text-color);
+    text-align: center;
+    padding: 10px var(--ios-horizontal-padding) 0;
+}
+
+/* App Info Section */
+.info-section {
+    padding-top: 0; /* Remove top padding */
+    padding-bottom: 0; /* Remove bottom padding */
+}
+.info-section h2 {
+     padding: 15px var(--ios-horizontal-padding); /* Add padding back to title */
+     margin-bottom: 0;
+}
+.info-list {
+    list-style: none;
+}
+.info-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 16px;
+    padding: 11px var(--ios-horizontal-padding); /* Standard list item padding */
+    position: relative;
+}
+.info-list li:not(:last-child)::after { /* Separator */
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: var(--ios-horizontal-padding); /* Full width separator */
+    right: 0;
+    height: 0.5px;
+    background-color: var(--ios-tertiary-bg-color);
+}
+
+.disclosure-indicator {
+    color: var(--ios-secondary-text-color);
+    font-weight: 600;
+}
+.disclosure-indicator.detail {
+    color: var(--ios-secondary-text-color); /* Reset color */
+    font-weight: 400; /* Normal weight */
+}
+
+.toggle-switch {
+    width: 51px; /* Standard iOS toggle width */
+    height: 31px; /* Standard iOS toggle height */
+    border-radius: 16px;
+    background-color: var(--ios-tertiary-bg-color); /* Off state */
+    position: relative;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+.toggle-switch::before { /* The knob */
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 27px;
+    height: 27px;
+    background-color: white;
+    border-radius: 50%;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease-in-out;
+}
+.toggle-switch.on {
+     background-color: #34C759; /* iOS green */
+}
+.toggle-switch.on::before {
+    transform: translateX(20px); /* Move knob to the right */
+}
+
+/* Stop Testing Section */
+.stop-testing-section {
+    background: none; /* No card background */
+    padding-top: 0;
+    padding-bottom: 0;
+}
+.stop-testing-button {
+    background: none;
+    border: none;
+    color: #FF3B30; /* iOS Red */
+    font-size: 16px;
+    cursor: pointer;
+    padding: 11px var(--ios-horizontal-padding); /* Align with list items */
+    width: 100%; /* Full width */
+    text-align: left; /* Align text left like list item */
+}
