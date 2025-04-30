@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>TestFlight Replica</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="ios-status-bar-area">
+        </div>
+
+    <div id="listView" class="ios-app-container view active">
+        <header class="ios-header">
+            <h1>Apps</h1>
+            <div class="profile-icon-placeholder"></div>
+        </header>
+
+        <main class="ios-content">
+            <section class="app-list-section">
+                <h2>Currently Testing</h2>
+                <ul class="app-list">
+                    <li data-appid="unwatched">
+                        <img src="placeholder-icon-1.png" alt="App Icon" class="app-icon">
+                        <div class="app-info">
+                            <span class="app-title">Unwatched for YouTube</span>
+                            <span class="app-version">Version 1.8.3 (232)</span>
+                            <span class="app-expiry">Expires in 90 days</span>
+                        </div>
+                        <button class="ios-button install-button">Install</button>
+                    </li>
+                    <li data-appid="bing">
+                         <img src="placeholder-icon-2.png" alt="App Icon" class="app-icon">
+                        <div class="app-info">
+                            <span class="app-title">Microsoft Bing Search</span>
+                            <span class="app-version">Version 31.6.430423001 (430423...)</span>
+                            <span class="app-expiry">Expires in 84 days</span>
+                        </div>
+                        <button class="ios-button install-button">Install</button>
+                    </li>
+                     <li data-appid="bookmark">
+                        <img src="placeholder-icon-4.png" alt="App Icon" class="app-icon">
+                        <div class="app-info">
+                            <span class="app-title">Bookmark Management...</span>
+                            <span class="app-version">Version 1.2.6 (67)</span>
+                            <span class="app-expiry">Expires in 50 days</span>
+                        </div>
+                        <button class="ios-button update-button">Update</button>
+                    </li>
+                     </ul>
+            </section>
+
+             <section class="app-list-section">
+                <h2>Requires OS Update</h2>
+                 <ul class="app-list">
+                    <li data-appid="hezel">
+                        <img src="placeholder-icon-7.png" alt="App Icon" class="app-icon">
+                        <div class="app-info">
+                            <span class="app-title">Hezel for Apple Music</span>
+                            <span class="app-version">Version 1.7 (5)</span>
+                            <span class="app-expiry">Expires in 16 days</span>
+                        </div>
+                    </li>
+                </ul>
+            </section>
+        </main>
+    </div>
+
+    <div id="detailView" class="ios-app-container view"> <header class="ios-header detail-header">
+            <button id="backButton" class="back-button">&lt; Apps</button>
+            <div class="action-icon-placeholder"></div>
+        </header>
+
+        <main class="ios-content detail-content">
+            <section class="detail-app-header">
+                 <img src="placeholder-icon-1.png" alt="App Icon Large" class="app-icon-large">
+                 <h1 class="detail-app-title">Unwatched for YouTube</h1>
+                 <div class="detail-buttons">
+                     <button class="ios-button install-button large-button">Install</button>
+                     <button class="ios-link-button">Send Feedback</button>
+                 </div>
+                 <hr class="detail-separator thin-separator">
+                 <div class="metadata">
+                     <div><span>Developer</span><span>App Name LLC</span></div>
+                     <div><span>Category</span><span>Utilities</span></div>
+                     <div><span>Expires</span><span>90 Days</span></div>
+                 </div>
+            </section>
+
+            <section class="detail-section">
+                <hr class="detail-separator">
+                <h2>What to Test</h2>
+                <p class="test-notes">
+                    - Smart playlist pending improvements<br>
+                    - Clarified import subscriptions instructions <a href="#" class="more-link">more</a>
+                </p>
+            </section>
+
+            <section class="detail-section screenshots-section">
+                 <hr class="detail-separator">
+                 <h2>Screenshots</h2>
+                 <div class="screenshots-container">
+                     <img src="placeholder-screenshot-1.png" alt="Screenshot 1">
+                     <img src="placeholder-screenshot-2.png" alt="Screenshot 2">
+                     <img src="placeholder-screenshot-3.png" alt="Screenshot 3">
+                 </div>
+                 <div class="device-compatibility">
+                     iPhone, iPad, Apple TV, and Mac
+                 </div>
+            </section>
+
+            <section class="detail-section">
+                 <hr class="detail-separator">
+                 <h2>App Description</h2>
+                 <p>Add Videos to watch them later or follow YouTube channels! <a href="#" class="more-link">more</a></p>
+            </section>
+
+             <section class="detail-section info-section">
+                 <hr class="detail-separator">
+                 <h2>App Information</h2>
+                 <ul class="info-list">
+                     <li><span>App Details</span> <span class="disclosure-indicator">&gt;</span></li>
+                     <li><span>Automatic Updates</span> <span class="toggle-switch on"></span></li>
+                     <li><span>Notifications</span> <span class="disclosure-indicator detail">Push &gt;</span></li>
+                     <li><span>Previous Builds</span> <span class="disclosure-indicator">&gt;</span></li>
+                 </ul>
+             </section>
+
+             <section class="detail-section stop-testing-section">
+                 <hr class="detail-separator">
+                 <button class="ios-text-button stop-testing-button">Stop Testing</button>
+             </section>
+
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
