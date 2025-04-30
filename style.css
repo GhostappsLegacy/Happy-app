@@ -45,6 +45,31 @@ body {
     height: 100vh; /* Full height */
 }
 
+.app-info {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  gap: 15px;
+  color: white;
+}
+
+.app-info img {
+  width: 60px;
+  height: 60px;
+  border-radius: 14px;
+}
+
+.app-info h1 {
+  margin: 0;
+  font-size: 22px;
+}
+
+.app-info p {
+  margin: 4px 0 0;
+  color: #a1a1a1;
+  font-size: 14px;
+}
+
 .ios-status-bar-area {
     height: 44px; /* Approximate safe area inset top for notched iPhones */
     /* background-color: rgba(255, 0, 0, 0.1); */ /* For debugging layout */
