@@ -20,6 +20,12 @@
     --ios-button-corner-radius: 20px; /* Fully rounded */
     --ios-button-height: 30px; /* Estimate */
     --ios-button-width: 70px; /* Estimate */
+      --ios-blue: #007AFF;
+  --bg-color: #000000;
+  --text-color: #FFFFFF;
+  --border-color: #5a595f;
+  --navbar-height: 88px;
+}
 }
 
 * {
@@ -485,13 +491,6 @@ body {
     width: 100%; /* Full width */
     text-align: left; /* Align text left like list item */
     display: block; /* Ensure it takes full width */
-}
-:root {
-  --ios-blue: #007AFF;
-  --bg-color: #000000;
-  --text-color: #FFFFFF;
-  --border-color: #5a595f;
-  --navbar-height: 22px;
 }
 
 #navbar {
