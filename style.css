@@ -511,3 +511,57 @@ body {
     text-align: left; /* Align text left like list item */
     display: block; /* Ensure it takes full width */
 }
+:root {
+  --ios-blue: #007AFF;
+  --bg-color: #000000;
+  --text-color: #FFFFFF;
+  --border-color: #5a595f;
+  --navbar-height: 8px;
+}
+
+#navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  height: calc(var(--navbar-height) + env(safe-area-inset-top));
+  padding-top: env(safe-area-inset-top);
+  background-color: var(--bg-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.05s ease, backdrop-filter 0.05s ease;
+}
+
+/* Separator line (hidden at top, shown on scroll) */
+#navbar::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 0.5px;
+  background-color: transparent;
+  transition: background-color 0.2s ease;
+  pointer-events: none;
+}
+
+/* Title styling */
+#navbar h1 {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+/* When scrolled */
+#navbar.scrolled {
+  background-color: rgba(28, 28, 30, 0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+#navbar.scrolled::after {
+  background-color: var(--border-color);
+}
