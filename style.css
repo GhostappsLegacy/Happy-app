@@ -1,3 +1,199 @@
+/* Basic Reset & Dark Mode Defaults */
+:root {
+    /* iOS Dark Mode Palette (Approximations) */
+    --ios-bg-color: #000000;
+    --ios-secondary-bg-color: #1C1C1E; /* List item background */
+    --ios-tertiary-bg-color: #2C2C2E; /* Separators, potentially */
+    --ios-primary-text-color: #FFFFFF;
+    --ios-secondary-text-color: rgba(235, 235, 245, 0.6); /* Lighter gray */
+    --ios-blue-color: #0A84FF;
+    --ios-gray-color: #8E8E93;
+
+    /* Font approximation */
+    --ios-font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+
+    /* Common spacing */
+    --ios-horizontal-padding: 16px;
+    --ios-list-item-padding-vertical: 11px; /* Typical iOS list padding */
+    --ios-icon-size: 48px; /* Adjust based on screenshot */
+    --ios-icon-corner-radius: 10px; /* ~22% of size */
+    --ios-button-corner-radius: 20px; /* Fully rounded */
+    --ios-button-height: 30px; /* Estimate */
+    --ios-button-width: 70px; /* Estimate */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    /* Prevent pull-to-refresh, rubber banding etc. */
+    overscroll-behavior-y: contain;
+}
+
+body {
+    background-color: var(--ios-bg-color);
+    color: var(--ios-primary-text-color);
+    font-family: var(--ios-font-family);
+    font-size: 17px; /* iOS default */
+    line-height: 1.4; /* iOS typical line height */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-y: scroll; /* Ensure scrollability */
+    height: 100vh; /* Full height */
+}
+
+.ios-status-bar-area {
+    height: 44px; /* Approximate safe area inset top for notched iPhones */
+    /* background-color: rgba(255, 0, 0, 0.1); */ /* For debugging layout */
+}
+
+.ios-app-container {
+    width: 100%;
+    max-width: 600px; /* Optional: Limit width on very wide screens */
+    margin: 0 auto; /* Center if max-width is used */
+}
+
+/* Header */
+.ios-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px var(--ios-horizontal-padding) 15px; /* Adjust padding */
+    /* background-color: rgba(0, 255, 0, 0.1); */ /* For debugging layout */
+}
+
+.ios-header h1 {
+    font-size: 34px; /* iOS Large Title size */
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.profile-icon-placeholder {
+    width: 36px;
+    height: 36px;
+    background-color: var(--ios-gray-color);
+    border-radius: 50%;
+}
+
+/* Main Content & Sections */
+.ios-content {
+    padding: 0; /* Padding managed by sections */
+}
+
+.app-list-section {
+    margin-bottom: 30px; /* Space between sections */
+}
+
+.app-list-section h2 {
+    font-size: 22px; /* iOS Headline style approximation */
+    font-weight: 600;
+    padding: 0 var(--ios-horizontal-padding) 8px;
+    color: var(--ios-primary-text-color);
+}
+
+/* App List */
+.app-list {
+    list-style: none;
+    background-color: var(--ios-secondary-bg-color); /* Grouped list background */
+    margin: 0 var(--ios-horizontal-padding); /* Indent list block */
+    border-radius: 10px; /* Rounded corners for the list group */
+    overflow: hidden; /* Clip children to rounded corners */
+}
+
+.app-list li {
+    display: flex;
+    align-items: center;
+    padding: var(--ios-list-item-padding-vertical) var(--ios-horizontal-padding);
+    position: relative; /* For separator */
+    cursor: pointer; /* Add cursor pointer for clickable items */
+}
+
+/* List Separator */
+.app-list li:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: calc(var(--ios-horizontal-padding) + var(--ios-icon-size) + 12px); /* Align separator start after icon+gap */
+    right: 0;
+    height: 0.5px; /* Thin separator */
+    background-color: var(--ios-tertiary-bg-color); /* Adjust color as needed */
+}
+
+/* App Icon */
+.app-icon {
+    width: var(--ios-icon-size);
+    height: var(--ios-icon-size);
+    border-radius: var(--ios-icon-corner-radius);
+    margin-right: 12px;
+    flex-shrink: 0;
+    background-color: var(--ios-gray-color); /* Placeholder bg */
+    /* Add subtle shadow if needed */
+    /* box-shadow: 0 1px 3px rgba(0,0,0,0.1); */
+}
+
+/* App Info Text Block */
+.app-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-grow: 1;
+    margin-right: 10px; /* Space before button */
+    overflow: hidden; /* Prevent text overflow issues */
+}
+
+.app-title {
+    font-size: 16px;
+    font-weight: 500; /* Medium weight */
+    color: var(--ios-primary-text-color);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.app-version, .app-expiry {
+    font-size: 13px;
+    color: var(--ios-secondary-text-color);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.3;
+}
+
+/* Buttons */
+.ios-button {
+    border: none;
+    border-radius: var(--ios-button-corner-radius);
+    padding: 0 15px; /* Adjust horizontal padding */
+    height: var(--ios-button-height);
+    min-width: var(--ios-button-width);
+    font-size: 15px;
+    font-weight: 600; /* Semibold */
+    cursor: pointer;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.install-button, .update-button {
+    background-color: var(--ios-blue-color);
+    color: var(--ios-primary-text-color);
+}
+
+/* Text Truncation Examples within app-info (redundant with styles above, but demonstrates concept) */
+.app-info span {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block; /* Ensure block display for ellipsis */
+}
+
+/* Responsiveness basic setup */
+/* For now, mainly fixed layout similar to iOS. Media queries could refine later if needed. */
+
 
 /* View Management */
 .view {
@@ -121,13 +317,31 @@
 
 /* Detail Sections */
 .detail-section {
+    /* Removed background-color, margin, border-radius for full-width separators */
     padding: 15px var(--ios-horizontal-padding);
-    background-color: var(--ios-secondary-bg-color); /* Card background */
-    margin: 20px var(--ios-horizontal-padding); /* Section spacing */
-    border-radius: 10px; /* Rounded corners */
-    overflow: hidden; /* Clip separator */
     position: relative; /* For separator positioning */
 }
+
+/* ADDED: Container for grouped sections to get the card effect back */
+.detail-section-group {
+     background-color: var(--ios-secondary-bg-color); /* Card background */
+     margin: 20px var(--ios-horizontal-padding); /* Section spacing */
+     border-radius: 10px; /* Rounded corners */
+     overflow: hidden; /* Clip children */
+}
+
+
+/* Apply separator style within the group */
+.detail-section-group .detail-section:not(:first-child)::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: var(--ios-horizontal-padding); /* Indent separator */
+    right: 0;
+    height: 0.5px;
+    background-color: var(--ios-tertiary-bg-color);
+}
+
 .detail-section h2 {
     font-size: 18px;
     font-weight: 600;
@@ -135,19 +349,6 @@
     padding: 0; /* Reset padding */
 }
 
-.detail-section .detail-separator { /* Separator *above* the section */
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    /* margin: 0 calc(-1 * var(--ios-horizontal-padding)); */ /* Extend full width if needed */
-}
-.detail-section:first-of-type { /* First section might not need top separator */
-    margin-top: 0;
-}
-.detail-section:first-of-type .detail-separator {
-    display: none;
-}
 
 /* Specific Section Styles */
 .test-notes {
@@ -165,6 +366,7 @@
 .screenshots-section {
    padding-left: 0; /* Remove padding for full-width scroll */
    padding-right: 0;
+   /* Remove from group styling if it shouldn't have the card background */
 }
 .screenshots-section h2 {
    padding-left: var(--ios-horizontal-padding); /* Add back padding for title */
@@ -205,6 +407,8 @@
 }
 .info-list {
     list-style: none;
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
 }
 .info-list li {
     display: flex;
@@ -214,19 +418,22 @@
     padding: 11px var(--ios-horizontal-padding); /* Standard list item padding */
     position: relative;
 }
-.info-list li:not(:last-child)::after { /* Separator */
+/* Separator for info list items - applied within the group */
+.detail-section-group .info-list li:not(:last-child)::after {
     content: '';
     position: absolute;
     bottom: 0;
-    left: var(--ios-horizontal-padding); /* Full width separator */
+    left: var(--ios-horizontal-padding); /* Indent separator */
     right: 0;
     height: 0.5px;
     background-color: var(--ios-tertiary-bg-color);
 }
 
+
 .disclosure-indicator {
     color: var(--ios-secondary-text-color);
-    font-weight: 600;
+    font-weight: 600; /* Keep > bold */
+    margin-left: 5px; /* Space before indicator */
 }
 .disclosure-indicator.detail {
     color: var(--ios-secondary-text-color); /* Reset color */
@@ -241,6 +448,7 @@
     position: relative;
     cursor: pointer;
     transition: background-color 0.2s ease-in-out;
+    flex-shrink: 0; /* Prevent toggle from shrinking */
 }
 .toggle-switch::before { /* The knob */
     content: '';
@@ -263,9 +471,9 @@
 
 /* Stop Testing Section */
 .stop-testing-section {
-    background: none; /* No card background */
-    padding-top: 0;
-    padding-bottom: 0;
+     /* Already inside a group, doesn't need its own card style */
+     padding-top: 0;
+     padding-bottom: 0;
 }
 .stop-testing-button {
     background: none;
@@ -276,4 +484,5 @@
     padding: 11px var(--ios-horizontal-padding); /* Align with list items */
     width: 100%; /* Full width */
     text-align: left; /* Align text left like list item */
+    display: block; /* Ensure it takes full width */
 }
